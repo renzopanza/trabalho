@@ -7,7 +7,7 @@
 ## Integrantes do Grupo
 - Renzo Faedda Panza
 - Henrique Lamarca
-- 
+- Ingrid de Oliveira Macedo
 
 ---
 
