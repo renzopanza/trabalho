@@ -1,0 +1,294 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://www.efs.ufjf.br/ontologias/saude_mental.owl"
+         xmlns="http://www.efs.ufjf.br/ontologias/saude_mental.owl#">
+
+<owl:Ontology rdf:about="http://www.efs.ufjf.br/ontologias/saude_mental.owl"/>
+
+<owl:ObjectProperty rdf:about="#apresentaAfeccao">
+  <rdfs:domain rdf:resource="#Paciente"/>
+  <rdfs:range rdf:resource="#CondicaoClinica"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#manifestaSintoma">
+  <rdfs:domain rdf:resource="#Paciente"/>
+  <rdfs:range rdf:resource="#Sintoma"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#atendePaciente">
+  <rdfs:domain rdf:resource="#ProfissionalDeSaude"/>
+  <rdfs:range rdf:resource="#Paciente"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#prescreveTratamento">
+  <rdfs:domain rdf:resource="#ProfissionalDeSaude"/>
+  <rdfs:range rdf:resource="#Intervencao"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#recebeTratamento">
+  <rdfs:domain rdf:resource="#Paciente"/>
+  <rdfs:range rdf:resource="#Intervencao"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#indicadaPara">
+  <rdfs:domain rdf:resource="#CondicaoClinica"/>
+  <rdfs:range rdf:resource="#Intervencao"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#sintomaDe">
+  <rdfs:domain rdf:resource="#Sintoma"/>
+  <rdfs:range rdf:resource="#CondicaoClinica"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#temIdade">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Individuo"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#temNome">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Individuo"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#dataDiagnostico">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#CondicaoClinica"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#nomeMedicamento">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Medicamento"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#registroProfissional">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#ProfissionalDeSaude"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Individuo">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Paciente">
+  <rdfs:subClassOf rdf:resource="#Individuo"/>
+  <owl:disjointWith rdf:resource="#ProfissionalDeSaude"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ProfissionalDeSaude">
+  <rdfs:subClassOf rdf:resource="#Individuo"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Psiquiatra">
+  <rdfs:subClassOf rdf:resource="#ProfissionalDeSaude"/>
+  <owl:disjointWith rdf:resource="#Psicologo"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Psicologo">
+  <rdfs:subClassOf rdf:resource="#ProfissionalDeSaude"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CondicaoClinica">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TranstornoAnsioso">
+  <rdfs:subClassOf rdf:resource="#CondicaoClinica"/>
+  <owl:disjointWith rdf:resource="#TranstornoDepressivo"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TranstornoDepressivo">
+  <rdfs:subClassOf rdf:resource="#CondicaoClinica"/>
+</owl:Class>
+
+<owl:Class rdf:about="#AnsiedadeGeneralizada">
+  <rdfs:subClassOf rdf:resource="#TranstornoAnsioso"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TranstornoDePanico">
+  <rdfs:subClassOf rdf:resource="#TranstornoAnsioso"/>
+</owl:Class>
+
+<owl:Class rdf:about="#DepressaoMaior">
+  <rdfs:subClassOf rdf:resource="#TranstornoDepressivo"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Sintoma">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Intervencao">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Terapia">
+  <rdfs:subClassOf rdf:resource="#Intervencao"/>
+  <owl:disjointWith rdf:resource="#Medicamento"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Medicamento">
+  <rdfs:subClassOf rdf:resource="#Intervencao"/>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#Preocupacao_Excessiva">
+  <rdf:type rdf:resource="#Sintoma"/>
+  <sintomaDe rdf:resource="#Ansiedade_Generalizada_C1"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Insonia">
+  <rdf:type rdf:resource="#Sintoma"/>
+  <sintomaDe rdf:resource="#Ansiedade_Generalizada_C1"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Tensao_Muscular">
+  <rdf:type rdf:resource="#Sintoma"/>
+  <sintomaDe rdf:resource="#Ansiedade_Generalizada_C1"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Ansiedade_Generalizada_C1">
+  <rdf:type rdf:resource="#AnsiedadeGeneralizada"/>
+  <indicadaPara rdf:resource="#Terapia_Cognitivo_Comportamental"/>
+  <indicadaPara rdf:resource="#Sertralina"/>
+  <dataDiagnostico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025-03-10</dataDiagnostico>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Terapia_Cognitivo_Comportamental">
+  <rdf:type rdf:resource="#Terapia"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Sertralina">
+  <rdf:type rdf:resource="#Medicamento"/>
+  <nomeMedicamento rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sertralina 50mg</nomeMedicamento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Dr_Andre_Souza">
+  <rdf:type rdf:resource="#Psiquiatra"/>
+  <atendePaciente rdf:resource="#Paciente_Ana"/>
+  <prescreveTratamento rdf:resource="#Terapia_Cognitivo_Comportamental"/>
+  <prescreveTratamento rdf:resource="#Sertralina"/>
+  <atendePaciente rdf:resource="#Paciente_Daniela"/>
+  <prescreveTratamento rdf:resource="#Escitalopram"/>
+  <prescreveTratamento rdf:resource="#Terapia_De_Exposicao"/>
+  <temNome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dr. André Souza</temNome>
+  <temIdade rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</temIdade>
+  <registroProfissional rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CRM-MG 12345</registroProfissional>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Paciente_Ana">
+  <rdf:type rdf:resource="#Paciente"/>
+  <apresentaAfeccao rdf:resource="#Ansiedade_Generalizada_C1"/>
+  <manifestaSintoma rdf:resource="#Tensao_Muscular"/>
+  <manifestaSintoma rdf:resource="#Insonia"/>
+  <manifestaSintoma rdf:resource="#Preocupacao_Excessiva"/>
+  <recebeTratamento rdf:resource="#Terapia_Cognitivo_Comportamental"/>
+  <recebeTratamento rdf:resource="#Sertralina"/>
+  <temNome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ana Lima</temNome>
+  <temIdade rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">29</temIdade>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Humor_Deprimido">
+  <rdf:type rdf:resource="#Sintoma"/>
+  <sintomaDe rdf:resource="#Depressao_Maior_C2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Anedonia">
+  <rdf:type rdf:resource="#Sintoma"/>
+  <sintomaDe rdf:resource="#Depressao_Maior_C2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Fadiga">
+  <rdf:type rdf:resource="#Sintoma"/>
+  <sintomaDe rdf:resource="#Depressao_Maior_C2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Depressao_Maior_C2">
+  <rdf:type rdf:resource="#DepressaoMaior"/>
+  <indicadaPara rdf:resource="#Terapia_Interpessoal"/>
+  <dataDiagnostico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025-01-22</dataDiagnostico>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Terapia_Interpessoal">
+  <rdf:type rdf:resource="#Terapia"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Dra_Beatriz_Costa">
+  <rdf:type rdf:resource="#Psicologo"/>
+  <atendePaciente rdf:resource="#Paciente_Carlos"/>
+  <prescreveTratamento rdf:resource="#Terapia_Interpessoal"/>
+  <temNome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dra. Beatriz Costa</temNome>
+  <temIdade rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">38</temIdade>
+  <registroProfissional rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CRP-MG 06/54321</registroProfissional>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Paciente_Carlos">
+  <rdf:type rdf:resource="#Paciente"/>
+  <apresentaAfeccao rdf:resource="#Depressao_Maior_C2"/>
+  <manifestaSintoma rdf:resource="#Anedonia"/>
+  <manifestaSintoma rdf:resource="#Humor_Deprimido"/>
+  <manifestaSintoma rdf:resource="#Fadiga"/>
+  <recebeTratamento rdf:resource="#Terapia_Interpessoal"/>
+  <temNome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Carlos Mendes</temNome>
+  <temIdade rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</temIdade>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Palpitacao">
+  <rdf:type rdf:resource="#Sintoma"/>
+  <sintomaDe rdf:resource="#Transtorno_Panico_C3"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Falta_De_Ar">
+  <rdf:type rdf:resource="#Sintoma"/>
+  <sintomaDe rdf:resource="#Transtorno_Panico_C3"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Medo_Intenso">
+  <rdf:type rdf:resource="#Sintoma"/>
+  <sintomaDe rdf:resource="#Transtorno_Panico_C3"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Transtorno_Panico_C3">
+  <rdf:type rdf:resource="#TranstornoDePanico"/>
+  <indicadaPara rdf:resource="#Terapia_De_Exposicao"/>
+  <indicadaPara rdf:resource="#Escitalopram"/>
+  <dataDiagnostico rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025-05-02</dataDiagnostico>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Escitalopram">
+  <rdf:type rdf:resource="#Medicamento"/>
+  <nomeMedicamento rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Escitalopram 10mg</nomeMedicamento>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Terapia_De_Exposicao">
+  <rdf:type rdf:resource="#Terapia"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Paciente_Daniela">
+  <rdf:type rdf:resource="#Paciente"/>
+  <apresentaAfeccao rdf:resource="#Transtorno_Panico_C3"/>
+  <manifestaSintoma rdf:resource="#Palpitacao"/>
+  <manifestaSintoma rdf:resource="#Falta_De_Ar"/>
+  <manifestaSintoma rdf:resource="#Medo_Intenso"/>
+  <recebeTratamento rdf:resource="#Terapia_De_Exposicao"/>
+  <recebeTratamento rdf:resource="#Escitalopram"/>
+  <temNome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Daniela Rocha</temNome>
+  <temIdade rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</temIdade>
+</owl:NamedIndividual>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Individuo"/>
+    <rdf:Description rdf:about="#CondicaoClinica"/>
+    <rdf:Description rdf:about="#Sintoma"/>
+    <rdf:Description rdf:about="#Intervencao"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+
+</rdf:RDF>

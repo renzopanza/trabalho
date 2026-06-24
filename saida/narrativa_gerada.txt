@@ -1,0 +1,12 @@
+CONTEXTO CLÍNICO EXTRAÍDO DA ONTOLOGIA DE SAÚDE MENTAL
+(Narrativa gerada automaticamente a partir de triplas RDF)
+
+
+=== CENÁRIO CLÍNICO 1 ===
+O paciente Ana Lima, de 29 anos, apresenta a afecção de Ansiedade Generalizada, diagnosticada em 2025-03-10. Este paciente manifesta os seguintes sintomas: tensao muscular, insonia e preocupacao excessiva. O profissional responsável pelo seu atendimento é Dr. André Souza, que atua como Psiquiatra (registro CRM-MG 12345). A linha de intervenção indicada para Ana Lima compreende: Terapia Cognitivo Comportamental e Sertralina. Quanto à terapia farmacológica, foi prescrito o medicamento Sertralina 50mg.
+
+=== CENÁRIO CLÍNICO 2 ===
+O paciente Carlos Mendes, de 41 anos, apresenta a afecção de Depressao Maior, diagnosticada em 2025-01-22. Este paciente manifesta os seguintes sintomas: anedonia, humor deprimido e fadiga. O profissional responsável pelo seu atendimento é Dra. Beatriz Costa, que atua como Psicologo (registro CRP-MG 06/54321). A linha de intervenção indicada para Carlos Mendes compreende: Terapia Interpessoal.
+
+=== CENÁRIO CLÍNICO 3 ===
+O paciente Daniela Rocha, de 34 anos, apresenta a afecção de Transtorno Panico, diagnosticada em 2025-05-02. Este paciente manifesta os seguintes sintomas: palpitacao, falta de ar e medo intenso. O profissional responsável pelo seu atendimento é Dr. André Souza, que atua como Psiquiatra (registro CRM-MG 12345). A linha de intervenção indicada para Daniela Rocha compreende: Terapia De Exposicao e Escitalopram. Quanto à terapia farmacológica, foi prescrito o medicamento Escitalopram 10mg.
